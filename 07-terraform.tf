@@ -21,6 +21,7 @@ provider "panos" {}
 
 variable "devicegroup" {}
 variable "rulename" {}
+variable "rulename2" {}
 variable "sourcezone" {}
 variable "sourceaddress" {}
 variable "destinationzone" {}
@@ -32,6 +33,7 @@ variable "application2" {}
 variable "port" {}
 variable "securityprofilegroup" {}
 variable "comment" {}
+variable "comment2" {}
 
 
 # Configuration Section
@@ -60,7 +62,7 @@ resource "panos_panorama_security_rule_group" "the-rule" {
     description           = var.comment
   }
   rule {
-    name                  = var.rulename
+    name                  = var.rulename2
     source_zones          = [var.sourcezone]
     source_addresses      = [var.sourceaddress]
     source_users          = ["any"]
@@ -71,6 +73,6 @@ resource "panos_panorama_security_rule_group" "the-rule" {
     services              = [var.port]
     action                = "allow"
     group                 = var.securityprofilegroup
-    description           = var.comment
+    description           = var.comment2
   }
 }
