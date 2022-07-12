@@ -61,18 +61,18 @@ resource "panos_panorama_security_rule_group" "the-rule" {
     group                 = var.securityprofilegroup
     description           = var.comment
   }
-  rule {
-    name                  = var.rulename2
-    source_zones          = [var.sourcezone]
-    source_addresses      = [var.sourceaddress]
-    source_users          = ["any"]
-    destination_zones     = [var.destinationzone]
-    destination_addresses = [panos_address_object.the-address-object.name]
-    categories            = ["any"]
-    applications          = [var.application2]
-    services              = [var.port]
-    action                = "allow"
-    group                 = var.securityprofilegroup
-    description           = var.comment2
-  }
+  #   rule {
+  #     name                  = var.rulename2
+  #     source_zones          = [var.sourcezone]
+  #     source_addresses      = [var.sourceaddress]
+  #     source_users          = ["any"]
+  #     destination_zones     = [var.destinationzone]
+  #     destination_addresses = [panos_address_object.the-address-object.name]
+  #     categories            = ["any"]
+  #     applications          = [var.application2]
+  #     services              = [var.port]
+  #     action                = "allow"
+  #     group                 = var.securityprofilegroup
+  #     description           = var.comment2
+  #   }
 }
