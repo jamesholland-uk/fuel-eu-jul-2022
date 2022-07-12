@@ -59,3 +59,21 @@ resource "panos_panorama_security_rule_group" "the-rule" {
     description           = var.comment
   }
 }
+
+# resource "panos_panorama_security_rule_group" "another-rule" {
+#   device_group = var.devicegroup
+#   rule {
+#     name                  = var.rulename
+#     source_zones          = [var.sourcezone]
+#     source_addresses      = [var.sourceaddress]
+#     source_users          = ["any"]
+#     destination_zones     = [var.destinationzone]
+#     destination_addresses = [panos_address_object.the-address-object.name]
+#     categories            = ["any"]
+#     applications          = [var.application2]
+#     services              = [var.port]
+#     action                = "allow"
+#     group                 = var.securityprofilegroup
+#     description           = var.comment
+#   }
+# }
