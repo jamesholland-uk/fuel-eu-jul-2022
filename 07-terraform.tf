@@ -59,10 +59,6 @@ resource "panos_panorama_security_rule_group" "the-rule" {
     group                 = var.securityprofilegroup
     description           = var.comment
   }
-}
-
-resource "panos_panorama_security_rule_group" "another-rule" {
-  device_group = var.devicegroup
   rule {
     name                  = var.rulename
     source_zones          = [var.sourcezone]
