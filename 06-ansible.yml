@@ -1,0 +1,40 @@
+#
+# Creating an address object and a security policy rule in Panorama using Ansible
+#
+# Note: Define the values for the variables during runtime, they are not stored in this file
+#
+
+- hosts: "{{ target_host }}"
+  connection: local
+
+  vars:
+    device:
+      ip_address: "{{ ansible_env.host }}"
+      api_key: "{{ ansible_env.apikey }}"
+
+  collections:
+    - paloaltonetworks.panos
+
+  tasks:
+    - name: Create address object
+      panos_address_object:
+        provider: "{{ device }}"
+        device_group: "{{ ansible_env.devicegroup }}"
+        name: "{{ ansible_env.destinationaddressname }}"
+        value: "{{ ansible_env.destinationaddressIP }}"
+        description: "{{ ansible_env.destinationaddressdesc }}"
+
+    - name: Create rule
+      paloaltonetworks.panos.panos_security_rule:
+        provider: "{{ device }}"
+        device_group: "{{ ansible_env.devicegroup }}"
+        rule_name: "{{ ansible_env.rulename }}"
+        source_zone: "{{ ansible_env.sourcezone }}"
+        destination_zone: "{{ ansible_env.destinationzone }}"
+        source_ip: "{{ ansible_env.sourceaddress }}"
+        destination_ip: "{{ ansible_env.destinationaddressname }}"
+        application: "{{ ansible_env.application }}"
+        service: "{{ ansible_env.port }}"
+        action: "allow"
+        group_profile: "{{ ansible_env.securityprofilegroup }}"
+        description: "{{ ansible_env.comment }}"
