@@ -28,6 +28,7 @@ variable "destinationaddressname" {}
 variable "destinationaddressdesc" {}
 variable "destinationaddressIP" {}
 variable "application" {}
+variable "application2" {}
 variable "port" {}
 variable "securityprofilegroup" {}
 variable "comment" {}
