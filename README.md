@@ -9,5 +9,6 @@ Starting off with hardcoded scripts, moving into using variables, then moving in
 - 03: XML API script - using variables with values defined outside the script
 - 04: REST API script - using variables with values defined outside the script
 - 05: Python script - using variables with values defined outside the script
-- 06: Ansible playbook - using variables with values defined outside the script
-- 07: Terraform - using variables with values defined outside the script
+- 06: Ansible playbook - using variables with values defined outside the playbook
+- 07: Terraform - using variables with values defined outside the config file
+- 08: Terraform - using Terraform Cloud, with variables define through Terraform Cloud 
